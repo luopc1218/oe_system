@@ -1,23 +1,16 @@
 //登录页
-import React, {Component} from 'react';
+import React from 'react';
 import './SignIn.scss'
+import SignInTab from "./SignInTab";
+import News from "./News";
 
-export default class SignIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            test: "ss"
-        }
-    }
-
-    componentDidMount() {
-        console.log(this)
-    }
-
-    render() {
-        return (
-            <div className="SignIn">登录页</div>
-        );
-    }
-
+const SignIn = () => {
+    return (
+        <div className="SignIn">
+            <News></News>
+            <SignInTab/>
+        </div>
+    );
 }
+
+export default SignIn

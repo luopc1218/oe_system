@@ -1,6 +1,58 @@
 .SignIn {
   width: 100vw;
   height: 100vh;
-  background: url("./background.jpg") no-repeat;
-  background-size: 100% 100% ;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+
+  .News {
+    width: 70%;
+    height: 100%;
+    //background: url("./background.jpg") no-repeat;
+    background: #ccc;
+    //background-size: 100% 100%;
+    .News-item {
+      //width: 100%;
+      height: 100vh;
+    }
+  }
+
+  .SignIn-tab {
+    width: 30%;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    //border-left: 1px solid #cecece;
+
+    .SignIn-tab-title {
+      width: 100%;
+      font-size: 2rem;
+      display: flex;;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .SignIn-tab-form {
+      width: 80%;
+    }
+
+    .SignIn-tab-copyright {
+      text-align: center;
+      color: #cecece;
+    }
+
+    .switchButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+
+  }
+
+
 }
