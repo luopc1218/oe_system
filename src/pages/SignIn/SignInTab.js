@@ -1,21 +1,18 @@
 import React, {Component} from "react";
 import {Button, Form, Input, Select} from "antd";
-import axios from "axios"
+import {updateUser} from "../../actions/userAction"
+import {connect} from "react-redux";
+// import axios from "axios"
 
 const SignInTabForm = (props) => {
-    const [SignInForm] = Form.useForm()
     const {Option} = Select
-
     return (
         <Form
             name="form"
-            form={SignInForm}
             hideRequiredMark
             labelCol={{span: 3}}
             onFinish={props.handleSignIn}
             colon={false}
-
-
         >
             <Form.Item name="school" label="学校" rules={[{required: true, message: '请选择学校!'}]}>
                 <Select
@@ -53,7 +50,7 @@ const SignInTabForm = (props) => {
     )
 }
 
-export default class SignInTab extends Component {
+class SignInTab extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -67,15 +64,19 @@ export default class SignInTab extends Component {
         this.setState({
             loading: true
         })
-        axios.post("http://111.229.155.159:10800/login", {
-            school: values.school,
-            account: values.account,
-            password: values.password,
-        }).then(res => {
-            this.setState({
-                loading: false
-            })
-        })
+        // axios.post("/login", {
+        //     school: values.school,
+        //     account: values.account,
+        //     password: values.password,
+        // }).then(res => {
+        //     this.setState({
+        //         loading: false
+        //     })
+        //
+        // })
+        this.props.toIndex()
+        // console.log(this.props)
+
 
     }
 
@@ -103,3 +104,10 @@ export default class SignInTab extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, {updateUser})(SignInTab)

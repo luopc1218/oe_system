@@ -4,11 +4,16 @@ import './SignIn.scss'
 import SignInTab from "./SignInTab";
 import News from "./News";
 
-const SignIn = () => {
+const SignIn = (props) => {
+    const toIndex = () => {
+        console.log(props)
+        props.history.replace("/index")
+
+    }
     return (
         <div className="SignIn">
             <News></News>
-            <SignInTab/>
+            <SignInTab toIndex={toIndex}/>
         </div>
     );
 }
